@@ -1,0 +1,18 @@
+name: Upstream drift watch
+on:
+  schedule:
+    - cron: '0 13 * * *' # 13:00 UTC daily (~9am ET in EDT, ~8am in EST)
+  workflow_dispatch: {}
+concurrency:
+  group: upstream-watch
+  cancel-in-progress: false
+jobs:
+  watch:
+    permissions:
+      contents: read
+      issues: write
+    uses: CarterPape/upstream-drift-watch/.github/workflows/upstream-watch.yml@main
+    with:
+      upstream_repo: obra/superpowers
+      feature_branch: split-into-axis-plugins
+      mention: CarterPape
