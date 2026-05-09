@@ -1,0 +1,13 @@
+{
+  "name": "superpowers-foundation",
+  "description": "Foundation skills: the using-superpowers bootstrap that sets skill-invocation discipline, plus brainstorming for exploring intent before implementation. Required by every other superpowers axis plugin.",
+  "version": "5.1.0",
+  "author": {
+    "name": "Jesse Vincent",
+    "email": "jesse@fsck.com"
+  },
+  "homepage": "https://github.com/obra/superpowers",
+  "repository": "https://github.com/CarterPape/pape-superpowers",
+  "license": "MIT",
+  "keywords": ["skills", "brainstorming", "bootstrap", "foundation"]
+}

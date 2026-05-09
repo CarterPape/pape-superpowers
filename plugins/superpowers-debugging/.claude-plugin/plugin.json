@@ -1,0 +1,14 @@
+{
+  "name": "superpowers-debugging",
+  "description": "Systematic-debugging skill: four-phase process (root cause, pattern, hypothesis, implementation) that prevents symptom-fixing.",
+  "version": "5.1.0",
+  "author": {
+    "name": "Jesse Vincent",
+    "email": "jesse@fsck.com"
+  },
+  "homepage": "https://github.com/obra/superpowers",
+  "repository": "https://github.com/CarterPape/pape-superpowers",
+  "license": "MIT",
+  "keywords": ["skills", "debugging", "discipline"],
+  "dependencies": ["superpowers-foundation"]
+}

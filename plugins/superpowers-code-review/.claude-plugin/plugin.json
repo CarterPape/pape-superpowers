@@ -1,0 +1,14 @@
+{
+  "name": "superpowers-code-review",
+  "description": "Code-review skills: requesting-code-review (dispatch a reviewer subagent at checkpoints) and receiving-code-review (implement feedback with rigor, verify before complying).",
+  "version": "5.1.0",
+  "author": {
+    "name": "Jesse Vincent",
+    "email": "jesse@fsck.com"
+  },
+  "homepage": "https://github.com/obra/superpowers",
+  "repository": "https://github.com/CarterPape/pape-superpowers",
+  "license": "MIT",
+  "keywords": ["skills", "code-review", "feedback"],
+  "dependencies": ["superpowers-foundation"]
+}
