@@ -26,15 +26,16 @@ REPO_ROOT="$(pwd)"
 # Map axis plugin name -> space-separated skill names that live in it.
 # Keep in sync with .claude-plugin/marketplace.json and
 # plugins/superpowers/.claude-plugin/plugin.json (the umbrella's deps).
+#
+# This fork deliberately drops the upstream axes that only re-implement
+# native Claude Code features (plans, worktrees, subagents,
+# finishing-branch, verification). Their skills are intentionally absent —
+# if /sync replays an upstream edit to one of them, expect a modify/delete
+# rebase conflict and resolve it "keep deleted".
 declare -a AXES=(
   "superpowers-foundation:using-superpowers brainstorming"
   "superpowers-tdd:test-driven-development"
-  "superpowers-verification:verification-before-completion"
   "superpowers-code-review:requesting-code-review receiving-code-review"
-  "superpowers-finishing-branch:finishing-a-development-branch"
-  "superpowers-worktrees:using-git-worktrees"
-  "superpowers-subagents:subagent-driven-development dispatching-parallel-agents"
-  "superpowers-plans:writing-plans executing-plans"
   "superpowers-debugging:systematic-debugging"
   "superpowers-writing-skills:writing-skills"
 )

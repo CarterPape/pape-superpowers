@@ -1,25 +1,20 @@
 {
-  "name": "superpowers",
-  "description": "Umbrella plugin: depends on every superpowers axis plugin. Install for the full skill set; install per-axis plugins instead for narrower scope and reduced session token usage.",
-  "version": "5.1.0",
-  "author": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com"
-  },
-  "homepage": "https://github.com/obra/superpowers",
-  "repository": "https://github.com/CarterPape/pape-superpowers",
-  "license": "MIT",
-  "keywords": ["skills", "umbrella", "tdd", "debugging", "collaboration"],
-  "dependencies": [
-    "superpowers-foundation",
-    "superpowers-tdd",
-    "superpowers-verification",
-    "superpowers-code-review",
-    "superpowers-finishing-branch",
-    "superpowers-worktrees",
-    "superpowers-subagents",
-    "superpowers-plans",
-    "superpowers-debugging",
-    "superpowers-writing-skills"
-  ]
+    "name": "superpowers",
+    "description": "Umbrella plugin: depends on every superpowers axis plugin. Install for the full skill set; install per-axis plugins instead for narrower scope and reduced session token usage.",
+    "version": "5.1.0",
+    "author": {
+        "name": "Jesse Vincent",
+        "email": "jesse@fsck.com"
+    },
+    "homepage": "https://github.com/obra/superpowers",
+    "repository": "https://github.com/CarterPape/pape-superpowers",
+    "license": "MIT",
+    "keywords": ["skills", "umbrella", "tdd", "debugging", "collaboration"],
+    "dependencies": [
+        "superpowers-foundation",
+        "superpowers-tdd",
+        "superpowers-code-review",
+        "superpowers-debugging",
+        "superpowers-writing-skills"
+    ]
 }

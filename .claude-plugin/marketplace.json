@@ -1,65 +1,40 @@
 {
-  "name": "pape-superpowers",
-  "description": "Personal fork of obra/superpowers split into per-axis Claude Code plugins so users can install only the skills they need (foundation, TDD, debugging, planning, code review, etc.) instead of the full bundle. Install the `superpowers` umbrella for the complete set.",
-  "owner": {
-    "name": "Carter Pape",
-    "email": "carterpape@users.noreply.github.com"
-  },
-  "plugins": [
-    {
-      "name": "superpowers-foundation",
-      "source": "./plugins/superpowers-foundation",
-      "description": "Foundation: using-superpowers bootstrap + brainstorming. Required by every other axis plugin."
+    "name": "pape-superpowers",
+    "description": "Personal fork of obra/superpowers, trimmed to the axes that aren't redundant with native Claude Code features and split into per-axis plugins (foundation, TDD, debugging, code review, writing-skills) so a session only pays context for what it needs. Install the `superpowers` umbrella for the full trimmed set.",
+    "owner": {
+        "name": "Carter Pape",
+        "email": "carterpape@users.noreply.github.com"
     },
-    {
-      "name": "superpowers-tdd",
-      "source": "./plugins/superpowers-tdd",
-      "description": "Test-driven development. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-verification",
-      "source": "./plugins/superpowers-verification",
-      "description": "Verification before completion. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-code-review",
-      "source": "./plugins/superpowers-code-review",
-      "description": "Requesting and receiving code review. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-finishing-branch",
-      "source": "./plugins/superpowers-finishing-branch",
-      "description": "Finishing a development branch. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-worktrees",
-      "source": "./plugins/superpowers-worktrees",
-      "description": "Using git worktrees. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-subagents",
-      "source": "./plugins/superpowers-subagents",
-      "description": "Subagent-driven development and dispatching parallel agents. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-plans",
-      "source": "./plugins/superpowers-plans",
-      "description": "Writing and executing implementation plans. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-debugging",
-      "source": "./plugins/superpowers-debugging",
-      "description": "Systematic debugging. Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers-writing-skills",
-      "source": "./plugins/superpowers-writing-skills",
-      "description": "Writing skills (the meta skill). Depends on superpowers-foundation."
-    },
-    {
-      "name": "superpowers",
-      "source": "./plugins/superpowers",
-      "description": "Umbrella plugin: depends on every superpowers axis plugin. Install for the full skill set; install per-axis plugins instead for narrower scope."
-    }
-  ]
+    "plugins": [
+        {
+            "name": "superpowers-foundation",
+            "source": "./plugins/superpowers-foundation",
+            "description": "Foundation: using-superpowers bootstrap + brainstorming. Required by every other axis plugin."
+        },
+        {
+            "name": "superpowers-tdd",
+            "source": "./plugins/superpowers-tdd",
+            "description": "Test-driven development. Depends on superpowers-foundation."
+        },
+        {
+            "name": "superpowers-code-review",
+            "source": "./plugins/superpowers-code-review",
+            "description": "Requesting and receiving code review. Depends on superpowers-foundation."
+        },
+        {
+            "name": "superpowers-debugging",
+            "source": "./plugins/superpowers-debugging",
+            "description": "Systematic debugging. Depends on superpowers-foundation."
+        },
+        {
+            "name": "superpowers-writing-skills",
+            "source": "./plugins/superpowers-writing-skills",
+            "description": "Writing skills (the meta skill). Depends on superpowers-foundation."
+        },
+        {
+            "name": "superpowers",
+            "source": "./plugins/superpowers",
+            "description": "Umbrella plugin: depends on every surviving superpowers axis plugin. Install for the full trimmed set; install per-axis plugins instead for narrower scope."
+        }
+    ]
 }
