@@ -26,10 +26,10 @@ You MUST create a task for each of these items and complete them in order:
 3. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria
 4. **Propose 2-3 approaches** — with trade-offs and your recommendation
 5. **Present design** — in sections scaled to their complexity, get user approval after each section
-6. **Write design doc** — save to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md` and commit
+6. **Write the spec as a pape-doc** — `pape-docs/<NNNN> <short title>.md` (see "After the Design"). Do NOT commit it.
 7. **Spec self-review** — quick inline check for placeholders, contradictions, ambiguity, scope (see below)
-8. **User reviews written spec** — ask user to review the spec file before proceeding
-9. **Transition to implementation** — invoke writing-plans skill to create implementation plan
+8. **User reviews written spec** — ask user to review the pape-doc before proceeding
+9. **Offer the three-way exit** — hand off to plan mode, execute now, or stop at the spec (see "After the Design"). Do not force any skill.
 
 ## Process Flow
 
@@ -42,10 +42,10 @@ digraph brainstorming {
     "Propose 2-3 approaches" [shape=box];
     "Present design sections" [shape=box];
     "User approves design?" [shape=diamond];
-    "Write design doc" [shape=box];
+    "Write spec pape-doc\n(not committed)" [shape=box];
     "Spec self-review\n(fix inline)" [shape=box];
     "User reviews spec?" [shape=diamond];
-    "Invoke writing-plans skill" [shape=doublecircle];
+    "Offer three-way exit\n(plan mode / execute / stop)" [shape=doublecircle];
 
     "Explore project context" -> "Visual questions ahead?";
     "Visual questions ahead?" -> "Offer Visual Companion\n(own message, no other content)" [label="yes"];
@@ -55,15 +55,15 @@ digraph brainstorming {
     "Propose 2-3 approaches" -> "Present design sections";
     "Present design sections" -> "User approves design?";
     "User approves design?" -> "Present design sections" [label="no, revise"];
-    "User approves design?" -> "Write design doc" [label="yes"];
-    "Write design doc" -> "Spec self-review\n(fix inline)";
+    "User approves design?" -> "Write spec pape-doc\n(not committed)" [label="yes"];
+    "Write spec pape-doc\n(not committed)" -> "Spec self-review\n(fix inline)";
     "Spec self-review\n(fix inline)" -> "User reviews spec?";
-    "User reviews spec?" -> "Write design doc" [label="changes requested"];
-    "User reviews spec?" -> "Invoke writing-plans skill" [label="approved"];
+    "User reviews spec?" -> "Write spec pape-doc\n(not committed)" [label="changes requested"];
+    "User reviews spec?" -> "Offer three-way exit\n(plan mode / execute / stop)" [label="approved"];
 }
 ```
 
-**The terminal state is invoking writing-plans.** Do NOT invoke frontend-design, mcp-builder, or any other implementation skill. The ONLY skill you invoke after brainstorming is writing-plans.
+**The terminal state is the three-way exit menu.** Brainstorming ends by writing the spec pape-doc and offering the user three choices — it does NOT auto-invoke any skill. Do NOT invoke frontend-design, mcp-builder, or any other implementation skill on your own. (There is no writing-plans skill in this fork; native plan mode replaces it.)
 
 ## The Process
 
@@ -106,15 +106,15 @@ digraph brainstorming {
 
 ## After the Design
 
-**Documentation:**
+**Documentation — write the spec as a pape-doc:**
 
-- Write the validated design (spec) to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`
-  - (User preferences for spec location override this default)
-- Use elements-of-style:writing-clearly-and-concisely skill if available
-- Commit the design document to git
+- Write the validated design to `pape-docs/<NNNN> <short title>.md`, following the pape-docs convention: an H1 title, an opening paragraph, and H2 sections as needed. Conversational tone, like explaining it to a colleague. No formal template.
+- `<NNNN>` is the next priority number: scan the project's `pape-docs/` for the highest existing 4-digit prefix and add one (zero-padded, e.g. `0007`); if `pape-docs/` is absent or has no numbered entries, use `0001`. The title is a short human phrase with spaces (e.g. `0007 offline sync conflict handling.md`).
+- **Do NOT commit it, and do not `git add` it.** `pape-docs/` is git-excluded by design — it's an in-progress scratchpad, not tracked documentation. Committing fights that convention.
+- Use elements-of-style:writing-clearly-and-concisely skill if available.
 
 **Spec Self-Review:**
-After writing the spec document, look at it with fresh eyes:
+After writing the spec pape-doc, look at it with fresh eyes:
 
 1. **Placeholder scan:** Any "TBD", "TODO", incomplete sections, or vague requirements? Fix them.
 2. **Internal consistency:** Do any sections contradict each other? Does the architecture match the feature descriptions?
@@ -124,16 +124,21 @@ After writing the spec document, look at it with fresh eyes:
 Fix any issues inline. No need to re-review — just fix and move on.
 
 **User Review Gate:**
-After the spec review loop passes, ask the user to review the written spec before proceeding:
+After the spec review loop passes, ask the user to review the pape-doc before proceeding:
 
-> "Spec written and committed to `<path>`. Please review it and let me know if you want to make any changes before we start writing out the implementation plan."
+> "Spec written to `pape-docs/<NNNN> <title>.md` (not committed — pape-docs is scratch). Please review it and tell me if you want changes before we decide how to proceed."
 
 Wait for the user's response. If they request changes, make them and re-run the spec review loop. Only proceed once the user approves.
 
-**Implementation:**
+**The three-way exit (terminal state):**
 
-- Invoke the writing-plans skill to create a detailed implementation plan
-- Do NOT invoke any other skill. writing-plans is the next step.
+Once the user approves the pape-doc, present exactly these three options and stop. Do not auto-invoke any skill; let the user choose.
+
+1. **Hand off to plan mode** *(recommended)* — "Enter plan mode and point it at `pape-docs/<NNNN> <title>.md`; native plan mode will turn the spec into an implementation plan." This is the default recommendation for any non-trivial build.
+2. **Execute now from this context** — implement directly from the just-approved spec in the current session, no plan-file ceremony. Good for small, well-bounded specs where the design *is* the plan.
+3. **Stop here** — the pape-doc is the deliverable. End the session; the user will pick it up later.
+
+Recommend option 1 unless the spec is small enough that option 2 is clearly faster. Whatever they pick, the pape-doc stays uncommitted.
 
 ## Key Principles
 
